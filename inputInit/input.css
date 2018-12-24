@@ -1,0 +1,103 @@
+/*
+这是hl-input插件的专用样式表
+by wzd wzd1314@163.com
+第一版样式
+*/
+
+.hl-input {
+    width: 300px;
+    font-size: 16px;
+    color: #1787FB;
+}
+
+.hl-input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Verdana, Sans-serif;
+    color: #ABABAB;
+}
+
+.hl-input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Verdana, Sans-serif;
+    color: #ABABAB;
+}
+
+.hl-input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Verdana, Sans-serif;
+    color: #ABABAB;
+}
+
+.hl-input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Verdana, Sans-serif;
+    color: #ABABAB;
+}
+.input-alarm::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Arial, Verdana, Sans-serif;
+    color: red;
+}
+
+.input-alarm:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Arial, Verdana, Sans-serif;
+    color: red;
+}
+
+.input-alarm::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Arial, Verdana, Sans-serif;
+    color: red;
+}
+
+.input-alarm:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Arial, Verdana, Sans-serif;
+    color: red;
+}
+.hl-input {
+    outline: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    border-radius: 0;
+    border-bottom: 1px solid #CBCBCB;
+    border-top: 0px solid #CBCBCB;
+    border-left: 0px solid #CBCBCB;
+    border-right: 0px solid #CBCBCB;
+    display: inline-block;
+    height: 30px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.input-active {
+    border-bottom: 2px solid #0078ff;
+    border-top: 0px solid #CBCBCB;
+    border-left: 0px solid #CBCBCB;
+    border-right: 0px solid #CBCBCB;
+}
+.input-active-alarm {
+    border-bottom: 2px solid red;
+    border-top: 0px solid #CBCBCB;
+    border-left: 0px solid #CBCBCB;
+    border-right: 0px solid #CBCBCB;
+}
