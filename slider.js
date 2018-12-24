@@ -1,13 +1,29 @@
+/**
+ *滑块插件
+ * width ：input的宽度
+ * height ：input的高度
+ * backgroundColor：滑动过后的背景颜色
+ * sliderColor ：滑块的颜色
+ * content ：提示文字
+ * fontColor ：提示文字颜色
+ * silderWidth：滑块的宽度
+ * iconColor滑块内部字体颜色
+ * success 验证成功的回掉函数
+ * by wzd wzdxx1314@163.com
+ * **/
+
 (function ($) {
     $.fn.slider = function (options) {
         //默认配置
         var defaultOp = {
             width: '100%',
             height: 32,
-            backgroundColor: '#F7DD3A',
+            backgroundColor: '#D1E9FD',
+            secondBackgroundColor:'#F7F9FA',
             fontColor: '#ffffff',
-            content: '滑动并解锁',
-            sliderColor: '#E8E8E8',
+            content: '向左拖拽互动校验',
+            successContent:'验证成功',
+            sliderColor: '#2693F7',
             silderWidth: 40,
             iconColor: '#ffffff',
             success: function (value) {
@@ -18,6 +34,8 @@
         var start = 0, end = 0, distance = 0;
         var finOp = $.extend(defaultOp, options);
         var $this = $(this)
+        //初始化清空子节点
+        $this.empty();
         var config = {
             render: function () {
                 div1 = $('<div></div>').css({
@@ -25,8 +43,9 @@
                     top: '0px',
                     left: '0px',
                     width: '0px',
-                    height: finOp.height + 'px',
-                    backgroundColor: finOp.backgroundColor
+                    height: finOp.height-2 + 'px',
+                    backgroundColor: finOp.backgroundColor,
+                    border:'1px solid #2693F7',
                 });
                 div2 = $('<div>' + finOp.content + '</div>').css({
                     width: '100%',
@@ -36,7 +55,8 @@
                     'font-weight': 300,
                     'font-family': 'Arial,Verdana,Sans-serif',
                     lineHeight: finOp.height + 'px',
-                    color: '#B0ABAB',
+                    // backgroundColor:finOp.secondBackgroundColor,
+                    color: '#1A1A1A',
                     top: '0px',
                     left: '0px',
                 });
@@ -54,7 +74,8 @@
                     position: 'relative',
                     width: finOp.width + 'px',
                     height: finOp.height + 'px',
-                    border: '1px solid #CBCBCB',
+                    // border: '1px solid #CBCBCB',
+                    'box-shadow': '0px 0px 5px #888888',
                     'user-select': 'none'
                 }).append(div1).append(div2).append(div3)
 
@@ -88,11 +109,11 @@
                 if (distance >= ($this.width() - finOp.silderWidth - 20)) {
                     div3.animate({left: $this.width() - finOp.silderWidth}, 150)
                         .unbind()
-                        .css({cursor:'',backgroundColor:'#5FB760'})
+                        .css({cursor:''})
                         .html('<img src="image/ok.png" width="30px" height="30px">')
 
                     div1.animate({width: $this.width() - finOp.silderWidth}, 150, finOp.success(true))
-                    div2.html('验证通过').css({color: '#ffffff'})
+                    div2.html(finOp.successContent)
                 } else {
                     div1.animate({width: 0}, 200)
                     div3.animate({left: 0}, 150)
